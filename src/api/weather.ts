@@ -41,7 +41,7 @@ class WeatherAPI {
     lat,
     lon,
   }: Coordinates): Promise<GeocodingResponse[]> {
-    const url = this.createURL(`${API_CONFIG.GEO_URL}/reverse`, {
+    const url = this.createURL(API_CONFIG.GEO_URL, {
       lat: lat.toString(),
       lon: lon.toString(),
       limit: 1,
