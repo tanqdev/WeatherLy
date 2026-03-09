@@ -1,3 +1,4 @@
+import CurrentWeather from "@/components/current-weather";
 import WeatherSkeleton from "@/components/loading-skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -114,7 +115,20 @@ const HomePage = () => {
           />
         </Button>
       </div>
-      {/* current and hourly weather */}
+      <div className="grid gap-6">
+        <div>
+          <CurrentWeather
+            data={weatherQuery.data}
+            locationName={locationName}
+          />
+          {/* current weather */}
+          {/* hourly temp */}
+        </div>
+        <div>
+          {/* weather details */}
+          {/* forecast */}
+        </div>
+      </div>
     </div>
   );
 };
