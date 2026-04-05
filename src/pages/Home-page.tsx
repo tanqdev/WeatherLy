@@ -3,6 +3,8 @@ import WeatherSkeleton from "@/components/loading-skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { useGeolocation } from "@/hooks/use-geolocation";
+import HourlyTemperature from "@/components/hourly-temprature";
+import WeatherDetails from "@/components/weather-details";
 import {
   useForecastQuery,
   useReverseGeocodeQuery,
@@ -116,16 +118,17 @@ const HomePage = () => {
         </Button>
       </div>
       <div className="grid gap-6">
-        <div>
+        <div className="flex flex-col lg:flex-row gap-4">
           <CurrentWeather
             data={weatherQuery.data}
             locationName={locationName}
           />
           {/* current weather */}
-          {/* hourly temp */}
+          <HourlyTemperature data={forecastQuery.data} />
         </div>
         <div>
           {/* weather details */}
+          <WeatherDetails data={weatherQuery.data} />
           {/* forecast */}
         </div>
       </div>
