@@ -9,7 +9,6 @@ import {
   Tooltip,
 } from "recharts";
 import { format } from "date-fns";
-import { Divide } from "lucide-react";
 interface HourlyTempratureProps {
   data: ForecastData;
 }
