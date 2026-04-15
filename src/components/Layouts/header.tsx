@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../theme-provider";
 import { MoonStar, Sun } from "lucide-react";
+import CitySearch from "../city-search";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -14,17 +15,20 @@ const Header = () => {
             className="h-14"
           ></img>
         </Link>
-        <div
-          onClick={() => {
-            setTheme(!isDark ? "dark" : "light");
-          }}
-          className={`flex items-center cursor-pointer transition-transform duration-300 ${isDark ? "rotate-180" : "rotate-0"}`}
-        >
-          {isDark ? (
-            <Sun className="h-6.5 w-6.5 text-yellow-500 rotate-0 transition all" />
-          ) : (
-            <MoonStar className="h-6.5 w-6.5 text-blue-400 rotate-0 transition all" />
-          )}
+        <div className="flex gap-4">
+          <CitySearch />
+          <div
+            onClick={() => {
+              setTheme(!isDark ? "dark" : "light");
+            }}
+            className={`flex items-center cursor-pointer transition-transform duration-300 ${isDark ? "rotate-180" : "rotate-0"}`}
+          >
+            {isDark ? (
+              <Sun className="h-6.5 w-6.5 text-yellow-500 rotate-0 transition all" />
+            ) : (
+              <MoonStar className="h-6.5 w-6.5 text-blue-400 rotate-0 transition all" />
+            )}
+          </div>
         </div>
       </div>
     </header>

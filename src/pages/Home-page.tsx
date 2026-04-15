@@ -11,6 +11,8 @@ import {
   useWeatherQuery,
 } from "@/hooks/use-weather";
 import { AlertTriangleIcon, MapPin, RefreshCcw } from "lucide-react";
+import WeatherForecast from "@/components/weather-forecast";
+import { FavoriteCities } from "@/components/favorite-cities";
 
 const HomePage = () => {
   const {
@@ -102,9 +104,9 @@ const HomePage = () => {
   }
   return (
     <div className="space-y-4">
-      {/* My favourite cities */}
+      <FavoriteCities />
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-bold tracking-tight">My Location</h1>
+        <h1 className="text-xl font-bold tracking-tight">Current Weather</h1>
         <Button
           variant={"outline"}
           size={"icon"}
@@ -126,10 +128,11 @@ const HomePage = () => {
           {/* current weather */}
           <HourlyTemperature data={forecastQuery.data} />
         </div>
-        <div>
+        <div className="grid gap-6 md:grid-cols-2 items-start">
           {/* weather details */}
           <WeatherDetails data={weatherQuery.data} />
           {/* forecast */}
+          <WeatherForecast data={forecastQuery.data} />
         </div>
       </div>
     </div>
